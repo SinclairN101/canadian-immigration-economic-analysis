@@ -1,0 +1,53 @@
+name: canada_immigration_economy_dbt
+version: 1.0.0
+config-version: 2
+
+profile: canada_immigration_economy_dbt
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  canada_immigration_economy_dbt:
+
+    staging:
+      +schema: staging_immigration_economy
+      +materialized: view
+      +tags:
+        - staging
+
+    intermediate:
+      +schema: intermediate_immigration_economy
+      +materialized: view
+      +tags:
+        - intermediate
+
+    marts:
+      +schema: production_immigration_economy
+      +materialized: table
+      +tags:
+        - production
+
+      dimensions:
+        +tags:
+          - dimensions
+
+      facts:
+        +tags:
+          - facts
+
+seeds:
+  canada_immigration_economy_dbt:
+    +schema: raw_immigration_economy
+
+vars:
+  start_date: "2000-01-01"
+  end_date: "2030-12-31"
