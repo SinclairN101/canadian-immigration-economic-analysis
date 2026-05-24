@@ -50,5 +50,127 @@ Used for:
 - reproducibility
 - ingestion auditing
 - source verification
+{% enddocs %}
+
+{% docs stg_statistics_canada_population_estimates %}
+
+Staging model for Statistics Canada quarterly population estimates.
+
+This model standardizes raw population estimate data from Statistics Canada into a cleaner structure for downstream immigration, demographic, and economic analysis.
+
+{% enddocs %}
+
+
+{% docs reference_period %}
+
+The reporting period associated with the record.
+
+For this project, this may represent a month, quarter, or year depending on the source table.
+
+{% enddocs %}
+
+
+{% docs region %}
+
+The geographic area associated with the record.
+
+Examples may include Canada, provinces, territories, cities, or housing markets depending on the source dataset.
+
+{% enddocs %}
+
+
+{% docs dguid %}
+
+Statistics Canada geographic identifier used to uniquely identify a geographic region.
+
+This identifier is stable across reporting periods and is commonly used for joining geographic datasets across Statistics Canada tables.
+
+Note:
+Some historical aggregate regions, such as "Northwest Territories including Nunavut", may have a null geographic identifier because of legacy boundary definitions in the source data.
+
+This known exception is handled by the singular dbt test `assert_population_estimates_current_regions_have_geographic_identifier`, which allows this historical aggregate while still failing if any current region is missing a geographic identifier.
+
+{% enddocs %}
+
+
+{% docs unit_of_measure %}
+
+Unit of measure for the metric value.
+
+Examples may include persons, percent, index, dollars, or thousands.
+
+{% enddocs %}
+
+
+{% docs unit_of_measure_id %}
+
+Statistics Canada identifier for the unit of measure.
+
+{% enddocs %}
+
+
+{% docs scalar_factor %}
+
+Scale applied to the reported value.
+
+Examples may include units, thousands, millions, or percentage points.
+
+{% enddocs %}
+
+
+{% docs scalar_id %}
+
+Statistics Canada identifier for the scalar factor.
+
+{% enddocs %}
+
+
+{% docs vector %}
+
+Statistics Canada vector identifier for the time series.
+
+{% enddocs %}
+
+
+{% docs coordinate %}
+
+Statistics Canada coordinate value identifying the specific table dimension combination.
+
+{% enddocs %}
+
+
+{% docs population_estimate %}
+
+Estimated population count for the given reporting period and geography.
+
+{% enddocs %}
+
+
+{% docs status %}
+
+Statistics Canada status flag for the record.
+
+This may indicate suppression, data quality notes, or other source-level reporting status.
+
+{% enddocs %}
+
+
+{% docs symbol %}
+
+Statistics Canada symbol associated with the value, if provided.
+
+{% enddocs %}
+
+
+{% docs terminated %}
+
+Indicator from Statistics Canada showing whether a series has been terminated.
+
+{% enddocs %}
+
+
+{% docs decimals %}
+
+Number of decimal places used by the source dataset.
 
 {% enddocs %}
