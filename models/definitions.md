@@ -174,3 +174,37 @@ Indicator from Statistics Canada showing whether a series has been terminated.
 Number of decimal places used by the source dataset.
 
 {% enddocs %}
+
+{% docs stg_statistics_canada_non_permanent_residents %}
+
+Staging model for Statistics Canada non-permanent resident population estimates.
+
+This model standardizes non-permanent resident data for downstream immigration, labour market, housing, and economic analysis.
+
+{% enddocs %}
+
+
+{% docs non_permanent_resident_type %}
+
+Category of non-permanent resident population reported by Statistics Canada.
+
+Current source values include:
+- Total, non-permanent residents
+- Work and study permit holders
+- Work permit holders only
+- Study permit holders only
+- Total, permit holders and their family members
+- Total, asylum claimants, protected persons and related groups
+- Asylum claimants and protected persons by permit status
+- Other
+
+These categories are used to analyze the composition and growth of temporary resident populations across Canada over time.
+
+{% enddocs %}
+
+
+{% docs non_permanent_resident_count %}
+
+Estimated count of non-permanent residents for the reporting period and geographic region.
+
+{% enddocs %}
