@@ -13,30 +13,29 @@ renamed as (
         dguid as geographic_identifier,
 
         -- Time / Date
-        ref_date as reference_period,
-
+        parse_date('%Y-%m', ref_date) as reference_period,
         -- Dimensions
         geo as geographic_region,
 
         -- Measures
-        value as population_estimate,
+        safe_cast(value as numeric) as population_estimate,
 
         -- Boolean / Status Flags
-        terminated as is_terminated_series,
+        safe_cast(terminated as bool) as is_terminated_series,
         status as record_status,
         symbol as record_symbol,
 
         -- Metadata
         uom as unit_of_measure,
-        uom_id as unit_of_measure_id,
+        safe_cast(uom_id as int64) as unit_of_measure_id,
         scalar_factor as value_scalar_factor,
-        scalar_id as value_scalar_identifier,
+        safe_cast(scalar_id as int64) as value_scalar_identifier,
         vector as statistics_canada_vector_id,
         coordinate as statistics_canada_coordinate_id,
-        decimals as decimal_precision,
+        safe_cast(decimals as int64) as decimal_precision,
 
         -- Ingestion Metadata
-        loaded_at,
+        safe_cast(loaded_at as timestamp) as loaded_at,
         source_system,
         source_table,
         source_url
