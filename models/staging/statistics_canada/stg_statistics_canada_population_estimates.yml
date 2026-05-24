@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: stg_statistics_canada_population_estimates
+    description: "{{ doc('stg_statistics_canada_population_estimates') }}"
+
+    columns:
+      - name: reference_period
+        description: "{{ doc('reference_period') }}"
+        data_tests:
+          - not_null
+
+      - name: geographic_region
+        description: "{{ doc('region') }}"
+        data_tests:
+          - not_null
+
+      - name: geographic_identifier
+        description: "{{ doc('dguid') }}"
+
+      - name: unit_of_measure
+        description: "{{ doc('unit_of_measure') }}"
+
+      - name: unit_of_measure_id
+        description: "{{ doc('unit_of_measure_id') }}"
+
+      - name: value_scalar_factor
+        description: "{{ doc('scalar_factor') }}"
+
+      - name: value_scalar_identifier
+        description: "{{ doc('scalar_id') }}"
+
+      - name: statistics_canada_vector_id
+        description: "{{ doc('vector') }}"
+
+      - name: statistics_canada_coordinate_id
+        description: "{{ doc('coordinate') }}"
+
+      - name: population_estimate
+        description: "{{ doc('population_estimate') }}"
+
+      - name: record_status
+        description: "{{ doc('status') }}"
+
+      - name: record_symbol
+        description: "{{ doc('symbol') }}"
+
+      - name: is_terminated_series
+        description: "{{ doc('terminated') }}"
+
+      - name: decimal_precision
+        description: "{{ doc('decimals') }}"
+
+      - name: loaded_at
+        description: "{{ doc('loaded_at') }}"
+
+      - name: source_system
+        description: "{{ doc('source_system') }}"
+
+      - name: source_table
+        description: "{{ doc('source_table') }}"
+
+      - name: source_url
+        description: "{{ doc('source_url') }}"
