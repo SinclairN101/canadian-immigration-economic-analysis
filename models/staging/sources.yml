@@ -1,0 +1,176 @@
+version: 2
+
+sources:
+  - name: raw_immigration_economy
+    description: >
+      Raw ingestion layer for the Canada Immigration Economy Analysis project.
+      Contains unprocessed data loaded from Statistics Canada, Bank of Canada,
+      the Federal Reserve Economic Data (FRED), and the Canadian Real Estate
+      Association (CREA). All tables share a common set of ingestion metadata
+      columns populated by the pipeline.
+    database: nathan-analytics-engineering
+    schema: raw_immigration_economy
+    config:
+      tags:
+        - raw
+        - ingestion
+      loaded_at_field: loaded_at
+      freshness:
+        warn_after: { count: 7, period: day }
+        error_after: { count: 30, period: day }
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+
+      # -----------------------------------------------------------------------
+      # Statistics Canada
+      # -----------------------------------------------------------------------
+
+      - name: raw_statistics_canada_population_estimates
+        description: "Quarterly Canadian population estimates from Statistics Canada table 17-10-0009-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_non_permanent_residents
+        description: "Quarterly estimates of non-permanent residents from Statistics Canada table 17-10-0121-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_international_migration
+        description: "Quarterly international migration estimates from Statistics Canada table 17-10-0040-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_gdp_per_capita
+        description: "GDP per capita and macroeconomic indicators from Statistics Canada table 36-10-0706-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_labour_productivity
+        description: "Labour productivity indexes from Statistics Canada table 36-10-0206-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_consumer_price_index
+        description: "Consumer Price Index and shelter CPI data from Statistics Canada table 18-10-0004-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_labour_force_characteristics
+        description: "Labour force characteristics including unemployment from Statistics Canada table 14-10-0287-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      - name: raw_statistics_canada_job_vacancies
+        description: "Job vacancies and vacancy rates from Statistics Canada table 14-10-0326-01."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      # -----------------------------------------------------------------------
+      # Bank of Canada
+      # -----------------------------------------------------------------------
+
+      - name: raw_bank_of_canada_policy_interest_rate
+        description: "Bank of Canada policy interest rate / overnight target rate."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      # -----------------------------------------------------------------------
+      # Federal Reserve Economic Data (FRED)
+      # -----------------------------------------------------------------------
+
+      - name: raw_federal_reserve_economic_data_us_real_gdp
+        description: "US real GDP data from FRED series GDPC1."
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
+
+      # -----------------------------------------------------------------------
+      # Canadian Real Estate Association (CREA)
+      # -----------------------------------------------------------------------
+
+      - name: raw_canadian_real_estate_association_mls_home_price_index
+        description: >
+          CREA MLS Home Price Index data including seasonally adjusted and
+          non-seasonally adjusted housing market metrics by region.
+        columns:
+          - name: loaded_at
+            description: "{{ doc('loaded_at') }}"
+          - name: source_system
+            description: "{{ doc('source_system') }}"
+          - name: source_table
+            description: "{{ doc('source_table') }}"
+          - name: source_url
+            description: "{{ doc('source_url') }}"
