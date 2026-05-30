@@ -244,3 +244,78 @@ Numeric value associated with the reported population growth or migration compon
 The meaning of this value depends on the selected population growth component and unit of measure.
 
 {% enddocs %}
+
+
+{% docs stg_statistics_canada_labour_force_characteristics %}
+
+Staging model for Statistics Canada labour force characteristics.
+
+This model standardizes labour market data used to analyze employment, unemployment, participation, and labour force trends across Canadian regions over time.
+
+{% enddocs %}
+
+
+{% docs labour_force_characteristic %}
+
+High-level labour force category reported by Statistics Canada.
+
+Used to segment labour market data across characteristics such as employment, unemployment, labour force participation, and related labour market measures.
+
+{% enddocs %}
+
+
+{% docs gender %}
+
+Gender category reported in the Statistics Canada source data.
+
+Used to segment labour market indicators by demographic group where available.
+
+{% enddocs %}
+
+
+{% docs age_group %}
+
+Age group reported in the Statistics Canada source data.
+
+Used to analyze labour market outcomes across different population age segments.
+
+{% enddocs %}
+
+
+{% docs labour_force_value %}
+
+Numeric value associated with the labour force characteristic for the reporting period, geographic region, gender, age group, statistic, and data type.
+
+The meaning of the value depends on the selected labour market statistic and unit of measure.
+
+{% enddocs %}
+
+
+{% docs labour_market_statistic %}
+
+Labour market metric reported by Statistics Canada.
+
+1 Employment
+2	Employment rate
+3	Full-time employment
+4	Labour force
+5	Part-time employment
+6	Participation rate
+7	Population
+8	Unemployment
+9	Unemployment rate
+
+{% enddocs %}
+
+
+{% docs labour_market_data_type %}
+
+Classification describing how the labour market statistic is reported.
+
+Examples 
+1 Seasonally adjusted
+2	Trend-cycle
+3	Unadjusted
+
+{% enddocs %}
+

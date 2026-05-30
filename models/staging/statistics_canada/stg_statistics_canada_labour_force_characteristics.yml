@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: stg_statistics_canada_labour_force_characteristics
+    description: "{{ doc('stg_statistics_canada_labour_force_characteristics') }}"
+
+    columns:
+      - name: geographic_identifier
+        description: "{{ doc('dguid') }}"
+
+      - name: reference_period
+        description: "{{ doc('reference_period') }}"
+        data_tests:
+          - not_null
+
+      - name: geographic_region
+        description: "{{ doc('region') }}"
+        data_tests:
+          - not_null
+
+      - name: labour_force_characteristic
+        description: "{{ doc('labour_force_characteristic') }}"
+        data_tests:
+          - not_null
+
+      - name: gender
+        description: "{{ doc('gender') }}"
+
+      - name: age_group
+        description: "{{ doc('age_group') }}"
+
+      - name: labour_market_statistic
+        description: "{{ doc('labour_market_statistic') }}"
+        data_tests:
+          - not_null
+
+      - name: labour_market_data_type
+        description: "{{ doc('labour_market_data_type') }}"
+
+      - name: labour_force_value
+        description: "{{ doc('labour_force_value') }}"
+
+      - name: is_terminated_series
+        description: "{{ doc('terminated') }}"
+
+      - name: record_status
+        description: "{{ doc('status') }}"
+
+      - name: record_symbol
+        description: "{{ doc('symbol') }}"
+
+      - name: unit_of_measure
+        description: "{{ doc('unit_of_measure') }}"
+
+      - name: unit_of_measure_id
+        description: "{{ doc('unit_of_measure_id') }}"
+
+      - name: value_scalar_factor
+        description: "{{ doc('scalar_factor') }}"
+
+      - name: value_scalar_identifier
+        description: "{{ doc('scalar_id') }}"
+
+      - name: statistics_canada_vector_id
+        description: "{{ doc('vector') }}"
+
+      - name: statistics_canada_coordinate_id
+        description: "{{ doc('coordinate') }}"
+
+      - name: decimal_precision
+        description: "{{ doc('decimals') }}"
+
+      - name: loaded_at
+        description: "{{ doc('loaded_at') }}"
+
+      - name: source_system
+        description: "{{ doc('source_system') }}"
+
+      - name: source_table
+        description: "{{ doc('source_table') }}"
+
+      - name: source_url
+        description: "{{ doc('source_url') }}"
