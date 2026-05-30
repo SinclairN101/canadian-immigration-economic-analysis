@@ -208,3 +208,39 @@ These categories are used to analyze the composition and growth of temporary res
 Estimated count of non-permanent residents for the reporting period and geographic region.
 
 {% enddocs %}
+
+{% docs stg_statistics_canada_international_migration %}
+
+Staging model for Statistics Canada international migration and population growth components.
+
+This model standardizes migration flow data for downstream immigration, population growth, labour market, housing, and economic analysis.
+
+{% enddocs %}
+
+
+{% docs population_growth_component %}
+
+Population growth component reported by Statistics Canada.
+
+Current source values include:
+- Immigrants
+- Emigrants
+- Returning emigrants
+- Net temporary emigration
+- Net non-permanent residents
+- Net emigration
+- Non-permanent residents inflows
+- Non-permanent residents outflows
+
+These population flow categories are used to analyze how international migration contributes to population change across Canadian regions over time.
+
+{% enddocs %}
+
+
+{% docs migration_value %}
+
+Numeric value associated with the reported population growth or migration component.
+
+The meaning of this value depends on the selected population growth component and unit of measure.
+
+{% enddocs %}
